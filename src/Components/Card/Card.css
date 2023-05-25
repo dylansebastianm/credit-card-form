@@ -1,0 +1,58 @@
+.card-component{
+    display: flex;
+    width: 22rem;
+    height: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    background-color: rgba(0, 0, 0, 0.795) ;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.chip{
+    width: 3rem;
+    height: 2.2rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    border-radius: 0.5rem
+    
+
+}
+
+.chip-marca{
+    display: flex;
+    gap: 13.5rem;
+}
+
+.marca{
+    margin-top: 1rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.numbers-container{
+    display: flex;
+    gap: 2.2rem;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+    color: gray;
+}
+
+.cardHolder-expiresDate{
+    display: flex;
+    gap: 9rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+    color: gray;
+
+}
+
+.data-type-card{
+    font-size: 0.65rem;
+}
+

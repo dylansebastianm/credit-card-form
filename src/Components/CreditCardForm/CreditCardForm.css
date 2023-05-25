@@ -1,0 +1,56 @@
+.creditCardForm-component{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+    height: 20rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem;
+}
+
+
+.firstImputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;    
+
+}
+
+.input-label-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.label-inputs{
+    color: gray;
+    font-size: small;
+
+}
+
+
+.month-year{
+    display: flex;
+    gap: 2rem;
+}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.month-year-cvv{
+    display: flex;
+    gap: 2rem;
+}
+.selectores{
+    display: flex;
+    gap: 1rem;
+}
+.button{
+    margin-top: 0.5rem;
+}
