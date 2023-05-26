@@ -29,6 +29,12 @@ function Card(): JSX.Element {
             </div>
             </div>
         </div>
+
+      <div className="back-Card-component">
+        <div className="magnetic"></div>
+        <div className="whiteCenter-cvv"></div>
+        <img>LOGO</img>
+      </div>
       </div>
     );
   }

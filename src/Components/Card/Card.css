@@ -2,14 +2,15 @@
     display: flex;
     width: 22rem;
     height: 12rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5rem;
+    margin-left: 32rem;
+    margin-top: 2rem;
     background-color: rgba(0, 0, 0, 0.795) ;
     border-radius: 1rem;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    position: absolute;
+    z-index: 2;
 }
 
 .chip{
@@ -36,8 +37,8 @@
 .numbers-container{
     display: flex;
     gap: 2.2rem;
-    margin-left: 1rem;
-    font-size: 1.4rem;
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
     margin-top: 0.8rem;
     color: gray;
 }
@@ -56,3 +57,18 @@
     font-size: 0.65rem;
 }
 
+/* ///////////////////////////////////// */
+.back-Card-component{
+    display: flex;
+    width: 22rem;
+    height: 12rem;
+    margin-left: 50rem;
+    margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.795) ;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    position: absolute;
+    z-index: 2;
+}

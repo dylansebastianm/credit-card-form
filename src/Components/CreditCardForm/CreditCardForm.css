@@ -1,12 +1,19 @@
 .creditCardForm-component{
     display: flex;
     flex-direction: column;
+    border-radius: 1rem;
     width: 23rem;
     height: 20rem;
+    margin-top: 12rem;
     margin-bottom: 2rem;
     margin-left: auto;
     margin-right: auto;
     padding: 3rem;
+    position: relative;
+    box-shadow: 10px 11px 9px -4px rgba(133,125,125,0.75);
+    -webkit-box-shadow: 10px 11px 9px -4px rgba(133,125,125,0.75);
+    -moz-box-shadow: 10px 11px 9px -4px rgba(133,125,125,0.75);
+    z-index: 1;
 }
 
 
@@ -54,3 +61,17 @@
 .button{
     margin-top: 0.5rem;
 }
+
+.cardComponent-form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.date-aux{
+    display: flex;
+}
+
+
+
+/* ///////////////////////////// */
