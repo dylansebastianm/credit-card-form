@@ -1,17 +1,57 @@
-.card-component{
+.card-component {
     display: flex;
     width: 22rem;
     height: 12rem;
-    margin-left: 32rem;
+/*     margin-left: 32rem;
+ */    
+
+    left: 38%;
     margin-top: 2rem;
     background-color: rgba(0, 0, 0, 0.795) ;
     border-radius: 1rem;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     position: absolute;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    backface-visibility: hidden;
     z-index: 2;
+  }
+
+  .back-Card-component {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    height: 12rem;
+    left: 38%;
+    background-color: rgba(0, 0, 0, 0.795);
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    perspective: 1000px; 
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    z-index: 1;
+
+    
+
+  }
+
+.card-component.flipped {
+  transform: rotateY(180deg);
+  z-index: 3;
+
 }
+
+.card-wrapper {
+    position: relative;
+  }
+
+
+
 
 .chip{
     width: 3rem;
@@ -57,18 +97,34 @@
     font-size: 0.65rem;
 }
 
-/* ///////////////////////////////////// */
-.back-Card-component{
+
+
+.magnetic{
     display: flex;
+    height: 3rem;
     width: 22rem;
-    height: 12rem;
-    margin-left: 50rem;
-    margin-top: 2rem;
-    background-color: rgba(0, 0, 0, 0.795) ;
-    border-radius: 1rem;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    position: absolute;
-    z-index: 2;
+    background-color: gray;
+    margin-top: 1rem;   
 }
+
+.whiteCenter-cvv{
+    display: flex;
+    height: 2rem;
+    width: 20rem;
+    background-color: rgba(255, 255, 255, 0.884);
+    margin-left: 1rem; 
+    border-radius: 0.2rem;
+    }
+
+    .cvv{
+        display: flex;
+        margin-left: 19rem;
+        margin-top: 1rem;
+        font-size: small;
+        font-style: oblique;
+        color: gray;
+    }
+
+    .marca-back{
+        margin-left: 18rem;
+    }

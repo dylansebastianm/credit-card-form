@@ -11,15 +11,6 @@ import { RiVisaLine } from "react-icons/ri";
 import { kMaxLength } from "buffer";
 
 
-const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
-
-const handleChange2 = (value: string) => {
-console.log(`selected ${value}`);
-};
-
-
 
 export default function CreditCardorm (): JSX.Element{
     const [cardNumber, setCardNumber] = useState<string>("");
@@ -27,6 +18,8 @@ export default function CreditCardorm (): JSX.Element{
     const [dateExpiresMonth, setdateExpiresMonth] = useState<number>();
     const [dateExpiresYear, setdateExpiresYear] = useState<number>();
     const [codeCvv, setcodeCvv] = useState<number>();
+    const [isFlipped, setIsFlipped] = useState<boolean>(false);
+
 
 
     
@@ -64,38 +57,49 @@ export default function CreditCardorm (): JSX.Element{
    
     return(
         <div className="cardComponent-form">
-                  <div className="card-component">
-        <div>
-            <div className="chip-marca">
-                    <img className="chip" src={chipImg}></img>
-                    <div ><RiVisaLine className="marca"/></div>
-            </div>
-            <div className="numbers-container">
-             {!cardNumber ? <div className="numbers">#### - #### - #### - ####</div> : cardNumber}
-                {/* <div className="numbers">####</div>
-                <div className="numbers">####</div>
-                <div className="numbers">####</div> */}
-            </div>
-            <div className="cardHolder-expiresDate">
-            <div className="card-holder-container">
-                <p className="data-type-card">CARD HOLDER</p>
-                {!nameCard ? <div className="numbers">NAME OF CARD</div> : nameCard.slice(0, 12).toUpperCase()}
-            </div>
-            <div className="expires-date-container">
-                <p className="data-type-card">EXPIRES</p>
-                <div className="date-aux">
-                    {!dateExpiresMonth ?<div>MM</div>: dateExpiresMonth}
-                    <div>/</div>
-                    {!dateExpiresYear ? <div>YY</div> : dateExpiresYear}
-                </div>
                 
-            </div>
-            </div>
-        </div>
-      </div>
-             <div className="creditCardForm-component">
-            <div className="form">
-            <div className="firstImputs">
+                <div className={`card-component ${isFlipped ? 'flipped' : ''}`}>
+                    <div>
+                            <div className="chip-marca">
+                                    <img className="chip" src={chipImg}></img>
+                                    <div ><RiVisaLine className="marca"/></div>
+                            </div>
+                            <div className="numbers-container">
+                            {!cardNumber ? <div className="numbers">#### - #### - #### - ####</div> : cardNumber}
+                                {/* <div className="numbers">####</div>
+                                <div className="numbers">####</div>
+                                <div className="numbers">####</div> */}
+                            </div>
+                            <div className="cardHolder-expiresDate">
+                            <div className="card-holder-container">
+                                <p className="data-type-card">CARD HOLDER</p>
+                                {!nameCard ? <div className="numbers">NAME OF CARD</div> : nameCard.slice(0, 12).toUpperCase()}
+                            </div>
+                            <div className="expires-date-container">
+                                <p className="data-type-card">EXPIRES</p>
+                                <div className="date-aux">
+                                    {!dateExpiresMonth ?<div>MM</div>: dateExpiresMonth}
+                                    <div>/</div>
+                                    {!dateExpiresYear ? <div>YY</div> : dateExpiresYear}
+                                </div>
+                                
+                            </div>
+                    </div>
+                    </div>
+                    <div className="back-Card-component">
+                <div className="magnetic"></div>
+                <div className="cvv">CVV</div>
+                <div className="whiteCenter-cvv"></div>
+                
+                <div ><RiVisaLine className="marca marca-back"/></div>
+                    </div>        
+                </div>
+
+            
+
+            <div className="creditCardForm-component">
+                <div className="form">
+                <div className="firstImputs">
                 <div className="input-label-container">
                     <p className="label-inputs">Card number</p>
                     <Form>
@@ -182,7 +186,9 @@ export default function CreditCardorm (): JSX.Element{
                 
                     <div className="input-label-container">
                         <p className="label-inputs">CVV</p>
-                        <Input placeholder="123" 
+                        <Input 
+                        onFocus={() => setIsFlipped(true)}
+                        placeholder="123" 
                         style={{ width: 79 }}/>
                     </div>
                         

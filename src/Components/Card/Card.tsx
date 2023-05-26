@@ -7,7 +7,7 @@ import { RiVisaLine } from "react-icons/ri";
 function Card(): JSX.Element {
     return (
       <div className="card-component">
-        <div>
+     
             <div className="chip-marca">
                     <img className="chip" src={chipImg}></img>
                     <div ><RiVisaLine className="marca"/></div>
@@ -27,14 +27,14 @@ function Card(): JSX.Element {
                 <p className="data-type-card">EXPIRES</p>
                 <div>MM/YY</div>
             </div>
-            </div>
+            <div className="back-Card-component">
+              <div className="magnetic"></div>
+              <div className="whiteCenter-cvv"></div>
+              <img>LOGO</img>
+          </div>
         </div>
 
-      <div className="back-Card-component">
-        <div className="magnetic"></div>
-        <div className="whiteCenter-cvv"></div>
-        <img>LOGO</img>
-      </div>
+      
       </div>
     );
   }
