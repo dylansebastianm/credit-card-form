@@ -17,7 +17,7 @@ export default function CreditCardorm (): JSX.Element{
     const [nameCard, setnameCard] = useState<string>("");
     const [dateExpiresMonth, setdateExpiresMonth] = useState<number>();
     const [dateExpiresYear, setdateExpiresYear] = useState<number>();
-    const [codeCvv, setcodeCvv] = useState<number>();
+    const [codeCvv, setcodeCvv] = useState<string>();
     const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
 
@@ -51,10 +51,18 @@ export default function CreditCardorm (): JSX.Element{
         return value.replace(/(\d{4})/g, "$1 - ").trim();
       };
     
- /*    const handleCvv = (event: ChangeEvent<HTMLInputElement>) => {
-        setcodeCvv(event.target.value);
-    }; */
-   
+      const handleCvv = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const inputCvv = event.target.value.slice(0, 3); // Obtener máximo 3 dígitos
+        const sanitizedInput = inputCvv.replace(/\D/g, ""); // Eliminar caracteres no numéricos
+        const asterisks = "*".repeat(sanitizedInput.length); // Crear asteriscos según la longitud
+        
+        setcodeCvv(asterisks);
+        event.target.value = sanitizedInput; // Actualizar el valor del campo de entrada con los dígitos numéricos
+      };
+      
+      
+
+      
     return(
         <div className="cardComponent-form">
                 
@@ -89,7 +97,11 @@ export default function CreditCardorm (): JSX.Element{
                     <div className="back-Card-component">
                 <div className="magnetic"></div>
                 <div className="cvv">CVV</div>
-                <div className="whiteCenter-cvv"></div>
+                <div className="whiteCenter-cvv">
+                    <div className="asteriscos">
+                        {!codeCvv ?<div ></div>: codeCvv}
+                    </div>
+                </div>
                 
                 <div ><RiVisaLine className="marca marca-back"/></div>
                     </div>        
@@ -101,7 +113,7 @@ export default function CreditCardorm (): JSX.Element{
                 <div className="form">
                 <div className="firstImputs">
                 <div className="input-label-container">
-                    <p className="label-inputs">Card number</p>
+                    <div className="label-inputs">Card number</div>
                     <Form>
         <Form.Item
           name="cardNumber"
@@ -117,6 +129,8 @@ export default function CreditCardorm (): JSX.Element{
           <Input
             maxLength={16}
             value={cardNumber}
+            onFocus={() => setIsFlipped(false)}
+
             placeholder="1111 - 1111 - 1111 - 1111"
             onChange={handleValueCardNumber}
           />
@@ -124,12 +138,25 @@ export default function CreditCardorm (): JSX.Element{
         </Form>
                 </div>
                 <div className="input-label-container">
-                    <p className="label-inputs">Name of owner</p>
-                    <Input 
-                    name="nameCard"
-                    value={nameCard}
-                    placeholder="Dylan Sebastian Marcote" 
-                    onChange={(event)=> handleName(event)}/>
+                    <div className="label-inputs">Name of owner</div>
+                    <Form>
+                        <Form.Item
+                        rules={[
+                            {
+                              required: true,
+                              pattern: /^[A-Za-z]+$/,
+                              message: 'Only alphabetical characters are allowed',
+                            },
+                          ]}>
+                        <Input 
+                        name="nameCard"
+                        value={nameCard}
+                        onFocus={() => setIsFlipped(false)}
+                        placeholder="Dylan Sebastian Marcote" 
+                        onChange={(event)=> handleName(event)}/>
+                        </Form.Item>
+                    </Form>
+                    
                 </div>
 
 
@@ -137,7 +164,7 @@ export default function CreditCardorm (): JSX.Element{
                     <div className="month-year-cvv">
                     <div className="month-year">
                         <div className="input-label-container">
-                        <p className="label-inputs">Expiration date</p>
+                        <div className="label-inputs">Expiration date</div>
                         <div className="selectores">
                         <Select
                         placeholder="Month"
@@ -185,11 +212,27 @@ export default function CreditCardorm (): JSX.Element{
                     </div>
                 
                     <div className="input-label-container">
-                        <p className="label-inputs">CVV</p>
-                        <Input 
-                        onFocus={() => setIsFlipped(true)}
-                        placeholder="123" 
-                        style={{ width: 79 }}/>
+                        <div className="label-inputs">CVV</div>
+                        <Form>
+                        <Form.Item
+                        name="cvv"
+                        rules={[
+                            {
+                            required: true,
+                            message: "Error",
+                            pattern: /^[0-9]*$/,
+                            },
+                        ]}
+                        >
+                        <Input.Password
+                            onFocus={() => setIsFlipped(true)}
+                            onChange={handleCvv}
+                            placeholder="123" 
+                            style={{ width: 79 }}
+                        />
+                        </Form.Item>
+                        </Form>
+                       
                     </div>
                         
 
