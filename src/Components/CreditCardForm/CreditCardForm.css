@@ -1,12 +1,13 @@
 .creditCardForm-component{
     display: flex;
     flex-direction: column;
+    align-items: center;
     border-radius: 1rem;
     width: 23rem;
     height: 20rem;
     margin-top: 12rem;
     margin-bottom: 2rem;
-    margin-left: auto;
+    margin-left: auto;  
     margin-right: auto;
     padding: 3rem;
     position: relative;
@@ -68,6 +69,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
+    
 }
 
 .date-aux{

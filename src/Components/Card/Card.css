@@ -5,7 +5,8 @@
 /*     margin-left: 32rem;
  */    
 
-    left: 38%;
+   /*  left: 38%; */
+   align-content: center;
     margin-top: 2rem;
     background-color: rgba(0, 0, 0, 0.795) ;
     border-radius: 1rem;
@@ -17,6 +18,8 @@
     backface-visibility: hidden;
     z-index: 2;
   }
+
+
 
   .back-Card-component {
     display: flex;
@@ -133,97 +136,18 @@
         margin-left: 18rem;
     }
 
-    @media (min-width: 0px) and (max-width: 1400px) {
-        .card-component {
+    @media (max-width: 600px) {
+
+      .cardComponent-form{
         display: flex;
-        left: 12% !important;
-        margin-right: 20rem;
-        width: 22rem;
-        height: 12rem;
-        margin-top: 2rem;
-        background-color: rgba(0, 0, 0, 0.795) ;
-        border-radius: 1rem;
-        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-           transition: transform 0.8s;
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        backface-visibility: hidden;
-        z-index: 2;
+        align-items: center;
+        width: 100%;
       }
 
-
-
-
-      .back-Card-component {
-        display: flex;
-        flex-direction: column;
-        width: 22rem;
-        height: 12rem;
-        left: 12% !important;
-        background-color: rgba(0, 0, 0, 0.795);
-        border-radius: 1rem;
-        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform-style: preserve-3d;
-        perspective: 1000px; 
-        backface-visibility: hidden;
-        transform: rotateY(180deg);
-        z-index: 1;
-    
-        
-    
+      .card-component {
+      
+       margin-left: 6rem;
+     
       }
-    
- }
-
- @media (max-width: 401px){
-    .card-component {
-        display: flex;
-        left: 12% !important;
-        margin-right: 20rem;
-        width: 22rem;
-        height: 12rem;
-        margin-top: 2rem;
-        background-color: rgba(0, 0, 0, 0.795) ;
-        border-radius: 1rem;
-        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-        position: fixed !important;
-           transition: transform 0.8s;
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        backface-visibility: hidden;
-        z-index: 2;
-      }
-
-
-
-
-      .back-Card-component {
-        display: flex;
-        flex-direction: column;
-        width: 22rem;
-        height: 12rem;
-        left: 12% !important;
-        background-color: rgba(0, 0, 0, 0.795);
-        border-radius: 1rem;
-        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform-style: preserve-3d;
-        perspective: 1000px; 
-        backface-visibility: hidden;
-        transform: rotateY(180deg);
-        z-index: 1;
-    
-        
-    
-      }  }
-  
-  
-  
-  
-  
-  
+      
+    }
