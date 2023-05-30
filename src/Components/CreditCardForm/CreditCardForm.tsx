@@ -3,12 +3,14 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import  formatter  from 'antd/lib/input';
 import { Input, Form  } from 'antd';
 import { Select } from 'antd';
-import { Button } from 'antd';
 import { Card } from "../Card/Card";
 import "../Card/Card.css"
 import chipImg from "../../Assets/png-transparent-integrated-circuit-smart-card-card-chip-electronics-text-rectangle.png"
-import { RiVisaLine } from "react-icons/ri";
+import { RiVisaLine, RiMastercardLine,  } from "react-icons/ri";
+import { FaCcAmex,FaCcMastercard } from "react-icons/fa";
 import { kMaxLength } from "buffer";
+import { Button, message, Space } from 'antd';
+
 
 
 
@@ -19,6 +21,9 @@ export default function CreditCardorm (): JSX.Element{
     const [dateExpiresYear, setdateExpiresYear] = useState<number>();
     const [codeCvv, setcodeCvv] = useState<string>();
     const [isFlipped, setIsFlipped] = useState<boolean>(false);
+
+    const [messageApi, contextHolder] = message.useMessage();
+
 
 
 
@@ -32,6 +37,7 @@ export default function CreditCardorm (): JSX.Element{
         const numericValue = inputValue.replace(/[^0-9]/g, ""); // Filtrar caracteres no numéricos
         const formattedValue = formatCardNumber(numericValue);
         setCardNumber(formattedValue.slice(0,25)); // Limitar a 10 caracteres en el estado
+        console.log("numeros" ,cardNumber)
     };
     const handleName = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
@@ -45,6 +51,12 @@ export default function CreditCardorm (): JSX.Element{
     setdateExpiresYear(value);
     };
 
+    const error = (): void => {
+        message.error({
+      type: 'error',
+      content: '¡This is an front-end app!',
+    });
+  };
     const formatCardNumber = (value: string): string => {
         // Implementa el formateo de los números de la tarjeta según tus necesidades
         // Por ejemplo, puedes dividirlos en grupos de 4 caracteres
@@ -70,10 +82,16 @@ export default function CreditCardorm (): JSX.Element{
                     <div>
                             <div className="chip-marca">
                                     <img className="chip" src={chipImg}></img>
-                                    <div ><RiVisaLine className="marca"/></div>
+                                    <div>
+                                    {cardNumber.toString().substring(0, 1) === '4' ? (<div><RiVisaLine className="marca" /></div>)   
+                                     : cardNumber.toString().substring(0, 1) === '5' ? (<div><FaCcMastercard className="marca-master" /></div>)
+                                     : cardNumber.toString().substring(0, 1) === '3' ? (<div><FaCcAmex className="marca-master" /></div>)   
+                                     : <div><RiVisaLine className="marca" /></div>} 
+                                    </div>
                             </div>
                             <div className="numbers-container">
                             {!cardNumber ? <div className="numbers">#### - #### - #### - ####</div> : cardNumber}
+                            
                                 {/* <div className="numbers">####</div>
                                 <div className="numbers">####</div>
                                 <div className="numbers">####</div> */}
@@ -239,7 +257,8 @@ export default function CreditCardorm (): JSX.Element{
                 </div>
                        
                 </div>   
-                <Button type="primary" className="button">Submit</Button>
+                <Button type="primary" className="button"
+                onClick={error}>Submit</Button>
             </div>  
             </div>
 

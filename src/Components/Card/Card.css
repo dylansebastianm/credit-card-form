@@ -74,7 +74,13 @@
 .marca{
     margin-top: 1rem;
     font-size: 3rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.849);
+}
+
+.marca-master{
+  margin-top: 1rem;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.849);
 }
 
 .numbers-container{
