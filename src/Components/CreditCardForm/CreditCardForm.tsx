@@ -53,7 +53,7 @@ export default function CreditCardorm (): JSX.Element{
 
     const error = (): void => {
         message.error({
-      type: 'error',
+      type: 'warning',
       content: '¡This is an front-end app!',
     });
   };
